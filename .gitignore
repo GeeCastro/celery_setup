@@ -1,2 +1,17 @@
-/.pytest_cache
-/env
+# Unit test / coverage reports
+.pytest_cache
+
+# virtual env
+env
+
+# VS Code
+.vscode/
+
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Celery stuff
+celerybeat-schedule
+celerybeat.pid
