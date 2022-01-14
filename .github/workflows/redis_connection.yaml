@@ -6,7 +6,6 @@ jobs:
   container-job:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    container: python:3.8
 
     # Service containers to run with `container-job`
     services:
@@ -14,6 +13,8 @@ jobs:
       redis:
         # Docker Hub image
         image: redis
+        ports:
+          - 6379:6379
         # Set health checks to wait until redis has started
         options: >-
           --health-cmd "redis-cli ping"
@@ -22,15 +23,17 @@ jobs:
           --health-retries 5
 
     steps:
+      - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
-          cache: "pip"
       - name: Install dependencies
         run: |
-          sudo -H python -m pip install --upgrade pip
-          sudo -H pip install -r requirements.txt
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+      - name: main
+        run: |
           cd src/
-          celery -A tasks worker --loglevel=INFO&
+          celery -A tasks worker --loglevel=INFO& 
           python main.py
