@@ -33,5 +33,5 @@ jobs:
       - name: main
         run: |
           cd src/
-          celery -A tasks worker --loglevel=INFO& 
+          celery -A tasks worker --loglevel=INFO&
           python main.py
