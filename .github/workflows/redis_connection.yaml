@@ -22,15 +22,15 @@ jobs:
           --health-retries 5
 
     steps:
-      - uses: actions/checkout@v2
       - name: Set up Python
         uses: actions/setup-python@v2
         with:
           python-version: 3.8
+          cache: "pip"
       - name: Install dependencies
         run: |
-          python -m pip install --upgrade pip
-          pip install -r requirements.txt
+          sudo -H python -m pip install --upgrade pip
+          sudo -H pip install -r requirements.txt
           cd src/
           celery -A tasks worker --loglevel=INFO&
           python main.py
