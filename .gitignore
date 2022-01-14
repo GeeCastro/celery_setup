@@ -15,3 +15,7 @@ __pycache__/
 # Celery stuff
 celerybeat-schedule
 celerybeat.pid
+
+
+# Dependency directories
+node_modules/
