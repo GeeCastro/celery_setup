@@ -34,7 +34,7 @@ jobs:
           cd src/
           celery -A tasks worker --loglevel=INFO
       - name: main
-          run: python main.py
+        run: python main.py
         env:
           # The hostname used to communicate with the Redis service container
           REDIS_HOST: redis
