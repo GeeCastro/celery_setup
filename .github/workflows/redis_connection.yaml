@@ -6,7 +6,13 @@ jobs:
   container-job:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    container: python:3.8
+    container:
+      image: python:3.8
+      env:
+        # The hostname used to communicate with the Redis service container
+        REDIS_HOST: redis
+        # The default Redis port
+        REDIS_PORT: 6379
 
     # Service containers to run with `container-job`
     services:
@@ -35,8 +41,3 @@ jobs:
           celery -A tasks worker --loglevel=INFO
       - name: main
         run: python main.py
-        env:
-          # The hostname used to communicate with the Redis service container
-          REDIS_HOST: redis
-          # The default Redis port
-          REDIS_PORT: 6379
