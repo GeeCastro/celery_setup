@@ -5,7 +5,7 @@ REDIS_URL = f"redis://{os.environ.get('REDIS_HOST', 'localhost')}:{os.environ.ge
 print(f"*** redis URL: {REDIS_URL} ***")
 celery_app = Celery(
     "test_celery",
-    broker_url=REDIS_URL,
-    CELERY_RESULT_BACKEND=REDIS_URL,
-    include=["tasks"],
+    broker=REDIS_URL,
+    backend=REDIS_URL,
+    include=["src.tasks"],
 )
