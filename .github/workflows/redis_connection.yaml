@@ -40,4 +40,6 @@ jobs:
           cd src/
           celery -A tasks worker --loglevel=INFO --detach
       - name: main
-        run: python main.py
+        run: |
+        cd src
+        python main.py
