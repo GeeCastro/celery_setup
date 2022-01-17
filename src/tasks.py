@@ -14,5 +14,5 @@ def multiply(service: Service, y: int):
     print(f"service ({type(service)}): {service}")
     constructed_service = Service.load_json(service)
 
-    result = constructed_service.multiply(y)
+    result = constructed_service.multiply_by(y)
     return result

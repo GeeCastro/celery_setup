@@ -5,7 +5,7 @@ class Service:
     def __init__(self, att1: int) -> None:
         self.att1 = att1
 
-    def multiply(self, multiplicand: int) -> int:
+    def multiply_by(self, multiplicand: int) -> int:
         return self.att1 * multiplicand
 
     def __json__(self):
