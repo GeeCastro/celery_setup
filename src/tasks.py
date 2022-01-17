@@ -1,5 +1,5 @@
-from cel import celery_app
-from service import Service
+from src.cel import celery_app
+from src.service import Service
 import json
 
 

@@ -1,6 +1,6 @@
-import tasks
+from src import tasks
 import time
-from service import Service
+from src.service import Service
 
 if __name__ == "__main__":
     print("--- starting tasks")
