@@ -40,6 +40,6 @@ jobs:
           python main.py
         env:
           # The hostname used to communicate with the Redis service container
-          REDIS_HOST: localhost
+          REDIS_HOST: redis
           # The default Redis port
           REDIS_PORT: 6379
