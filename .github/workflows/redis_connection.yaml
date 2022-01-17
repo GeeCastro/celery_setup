@@ -6,7 +6,7 @@ jobs:
   container-job:
     # Containers must run in Linux based operating systems
     runs-on: ubuntu-latest
-    container: python:3.8
+    # container: python:3.8
 
     # Service containers to run with `container-job`
     services:
@@ -26,6 +26,8 @@ jobs:
     steps:
       - name: Install dependencies
         run: |
+          ls
+          pwd
           python -m pip install --upgrade pip
           pip install -r requirements.txt
           cd src/
